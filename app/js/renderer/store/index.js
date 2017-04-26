@@ -1,5 +1,12 @@
-import state from './state';
+import * as state from './state';
+
+import programs from './programs';
+import settings from './settings';
 
 export default {
-  state
+  state,
+  modules: {
+    programs,
+    settings
+  }
 }

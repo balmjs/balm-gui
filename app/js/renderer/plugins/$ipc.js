@@ -1,23 +1,12 @@
 import event from '../store/event';
+import {appSubscribes} from '../store/state';
 
 const ipc = require('electron').ipcRenderer;
 
 export default {
   install(Vue){
 
-    [
-      'error',
-      'startExec',
-      'endExec',
-      'execOnData',
-      'execOnError',
-      'execOnClose',
-      'execOnEnd',
-      'getProgramsDone',
-      'getProgramsError',
-      'setProgramsSuccess',
-      'setProgramsError'
-    ].forEach(function (name) {
+    appSubscribes.forEach(function (name) {
       ipc.on(name, function (e, arg) {
         event.$emit(name, arg, e);
       });

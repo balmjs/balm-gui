@@ -11,8 +11,17 @@
       width: 80px;
       margin-right: 1em;
     }
+    .mdl-textfield {
+      padding: 0;
+    }
     .mdl-textfield + .mdl-button {
       margin-left: 1em;
+    }
+    &.btn-group {
+      justify-content: center;
+      button + button {
+        margin-left: 2em;
+      }
     }
   }
 }

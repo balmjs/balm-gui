@@ -19,8 +19,11 @@ let win;
 let createWindow =  () => {
   // 创建浏览器窗口。
   win = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 530,
+    height: 667,
+    resizable: isDev,
+    maximizable: isDev,
+    fullscreenable: isDev
   });
 
   // 加载应用的 index.html。

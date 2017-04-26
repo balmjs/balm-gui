@@ -10,19 +10,19 @@ module.exports = function (main, win) {
     execHandle(parseCommand(command), event.sender);
   });
 
-  main.on('getPrograms', function () {
+  main.on('getPrograms', function (event) {
     dbGet('programs').then(function (data) {
-      main.send('getProgramsDone', data);
+      event.sender.send('getProgramsDone', data);
     }).catch(function (err) {
-      main.send('getProgramsError', err);
+      event.sender.send('getProgramsError', err);
     });
   });
 
   main.on('setPrograms', function (event, data) {
     dbSet('programs', data).then(function () {
-      main.send('setProgramsSuccess');
+      event.sender.send('setProgramsSuccess');
     }).catch(function (err) {
-      main.send('setProgramsError', err);
+      event.sender.send('setProgramsError', err);
     });
   });
 };

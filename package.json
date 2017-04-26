@@ -11,6 +11,7 @@
   "dependencies": {
     "balm-ui": "^0.1.25",
     "font-awesome": "^4.7.0",
+    "moment": "^2.18.1",
     "vue": "^2.2.6",
     "vue-router": "^2.5.1",
     "vuex": "^2.3.1"
