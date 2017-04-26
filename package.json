@@ -1,0 +1,32 @@
+{
+  "name": "template-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/gulp",
+    "start": "./node_modules/.bin/electron ./app --debug",
+    "prod": "./node_modules/.bin/gulp --production"
+  },
+  "dependencies": {
+    "balm-ui": "^0.1.25",
+    "font-awesome": "^4.7.0",
+    "vue": "^2.2.6",
+    "vue-router": "^2.5.1",
+    "vuex": "^2.3.1"
+  },
+  "devDependencies": {
+    "asar": "^0.13.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "balm": "^0.6.0-beta.6",
+    "electron-packager": "^8.6.0",
+    "electron-prebuilt": "^1.4.13",
+    "gulp": "^3.9.1",
+    "vue-loader": "^11.3.4",
+    "vue-template-compiler": "^2.2.6"
+  },
+  "author": "74sharlock",
+  "license": "ISC"
+}

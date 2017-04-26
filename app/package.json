@@ -1,0 +1,6 @@
+{
+  "name": "balm-gui",
+  "productName": "balm-gui",
+  "version": "0.0.1",
+  "main": "./js/main.js"
+}

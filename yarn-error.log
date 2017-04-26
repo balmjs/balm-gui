@@ -1,0 +1,57 @@
+Arguments: 
+  /usr/local/bin/node /Users/sharlock/workspace/balm-gui/yarn/bin/yarn.js add jquery
+
+PATH: 
+  /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/sharlock/workspace/balm-gui/node_modules/.bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/sharlock/workspace/balm-gui/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  0.23.2
+
+Node version: 
+  7.4.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "template-electron",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "./node_modules/.bin/gulp",
+      "start": "./node_modules/.bin/electron ./app --debug",
+      "prod": "./node_modules/.bin/gulp --production"
+    },
+    "dependencies": {
+      "balm-ui": "^0.1.25",
+      "font-awesome": "^4.7.0",
+      "vue": "^2.2.6",
+      "vue-router": "^2.5.1",
+      "vuex": "^2.3.1"
+    },
+    "devDependencies": {
+      "asar": "^0.13.0",
+      "babel-plugin-transform-runtime": "^6.23.0",
+      "babel-preset-env": "^1.4.0",
+      "babel-preset-stage-2": "^6.24.1",
+      "balm": "^0.6.0-beta.6",
+      "electron-packager": "^8.6.0",
+      "electron-prebuilt": "^1.4.13",
+      "gulp": "^3.9.1",
+      "vue-loader": "^11.3.4",
+      "vue-template-compiler": "^2.2.6"
+    },
+    "author": "74sharlock",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz: ENOENT: no such file or directory, utime '/Users/sharlock/Library/Caches/Yarn/v1/npm-html-entities-1.2.1-0df29351f0721163515dfb9e5543e5f6eed5162f/lib/html5-entities.js'

@@ -1,0 +1,13 @@
+
+.mdl-button {
+  text-transform: initial;
+  &.mdl-button--fab {
+    margin: initial;
+  }
+  &.primary {
+    background-color: rgb(63,81,181);
+    &:hover {
+      background-color: rgb(63,81,181);
+    }
+  }
+}
