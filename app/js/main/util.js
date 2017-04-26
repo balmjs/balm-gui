@@ -60,7 +60,7 @@ const utils = {
   },
   dbGet(dbName){
     return new Promise(function(resolve, reject) {
-      fs.readFileSync(`${dbPath}/${dbName}.json`, 'utf8', function (err, data) {
+      fs.readFile(`${dbPath}/${dbName}.json`, 'utf8', function (err, data) {
         if(err){
           reject(err);
         } else {

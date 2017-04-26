@@ -4,7 +4,9 @@ const methods = {};
 
 [
   'getPrograms',
-  'setPrograms'
+  'setPrograms',
+  'getSettings',
+  'setSettings'
 ].forEach(function (name) {
   methods[name] = function (data) {
     ipc.send(name, data);

@@ -12,6 +12,7 @@ import _event from './store/event'
 // 自定义插件
 import $ipc from './plugins/$ipc';
 import $input from './plugins/$input';
+import $db from './plugins/$db';
 
 Vue.config.productionTip = false;
 
@@ -20,6 +21,7 @@ Vue.use(Vuex);
 Vue.use(BalmUI);
 Vue.use($ipc);
 Vue.use($input);
+Vue.use($db);
 
 Vue.prototype.$_event = _event;
 Vue.prototype.isDev = process.env.NODE_ENV === 'development';
