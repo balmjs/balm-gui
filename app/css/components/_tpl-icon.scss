@@ -1,0 +1,39 @@
+.tpl-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: no-repeat center;
+  background-size: cover;
+  color: currentColor;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+  /*
+  1: 'tpl-electron',
+    2: 'tpl-angular',
+    3: 'tpl-react',
+    4: 'tpl-react',
+    5: 'tpl-html',
+    6: 'tpl-vue',
+    7: 'tpl-vue',
+    8: 'tpl-vue'*/
+  &.tpl {
+    &-electron {
+      background-image: url('/images/electron.svg');
+    }
+    &-angular {
+      background-image: url('/images/angular.svg')
+    }
+    &-react {
+      background-image: url('/images/react.svg')
+    }
+    &-vue {
+      background-image: url('/images/vue.svg')
+    }
+    &-html {
+      background-image: url('/images/html.svg')
+    }
+  }
+}

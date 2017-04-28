@@ -17,6 +17,8 @@ balm.go(function (mix) {
 
     mix.copy('./app/package.json', './dist');
     mix.copy('./app/db', './dist/db');
+    mix.copy('./app/yarn', './dist/yarn');
+    mix.copy('./app/balm-cli', './dist/balm-cli');
 
     mix.end(function () {
       packager(packagerConfig, function done_callback (err, appPaths) {

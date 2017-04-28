@@ -9,7 +9,7 @@
     <div class="add-form-item">
       <label>Path</label>
       <ui-textfield readonly :model="formData.path"></ui-textfield>
-      <ui-button raised effect title="Select a folder" @click.native="openFileDialog">...</ui-button>
+      <ui-button effect title="Select a folder" @click.native="openFileDialog">...</ui-button>
     </div>
     <div class="add-form-item">
       <label>boilerplate</label>
@@ -50,8 +50,9 @@
           name: item.name,
           path: item.path,
           tpl: item.tpl,
+          installed: false,
           createTime: now,
-          lastModifyTime: now,
+          lastModifyTime: now
         });
         this.setPrograms(list);
         this.$router.replace('/');

@@ -8,8 +8,6 @@ const path = require('path');
 const url = require('url');
 
 const {port} = require('../../config/').server;
-const arg = process.argv[2];
-const isDev = arg === '--debug';
 
 
 // 保持一个对于 window 对象的全局引用，如果你不这样做，

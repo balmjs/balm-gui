@@ -1,8 +1,11 @@
 const {exec} = require('child_process');
 const fs = require('fs');
+const {commands, commandsMessage} = require('./commands');
+
+const {dialog} = require('electron');
 
 exports.execHandle = function (command, sender) {
-  let ls = exec(command);
+  let ls = exec(command.cmd, command.options);
 
   try {
 
@@ -16,8 +19,8 @@ exports.execHandle = function (command, sender) {
       sender.send('execOnError', data);
     });
 
-    ls.stderr.on('close', (data)=>{
-      sender.send('execOnClose', data);
+    ls.on('close', ()=>{
+      sender.send('execOnClose', command);
     });
 
     ls.stderr.on('end', (data)=>{
@@ -30,13 +33,41 @@ exports.execHandle = function (command, sender) {
 
 };
 
-exports.parseCommand = function(command) {
+exports.parseCommand = function(command, options) {
 
-  [
-    'yarn'
-  ].forEach((name)=>{
-    command.indexOf(name) === 0 && (command = command.replace(name, thirdModulePath[name]));
-  });
+  let l = commands.length;
+
+  while (l--){
+
+    let name = command[l];
+
+    let cmd, startMessage, endMessage, bin = name;
+
+    if(name.indexOf('yarn') === 0 ){
+      bin = 'yarn';
+
+      if(name === 'yarn') {
+        name = 'yarn install'
+      }
+
+    }
+
+    if(command.indexOf(name) === 0){
+      cmd = command.replace(bin, thirdModulePath[name]);
+      startMessage = commandsMessage[name][0];
+      endMessage = commandsMessage[name][1];
+
+      command = {
+        cmd,
+        startMessage,
+        endMessage,
+        options,
+      };
+
+      break;
+    }
+  }
+
 
   return command;
 };

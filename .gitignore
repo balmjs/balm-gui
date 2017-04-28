@@ -1,5 +1,6 @@
-.idea
-.tmp
-node_modules
-dist
-build
+.idea/
+.tmp/
+node_modules/
+dist/
+build/
+!yarn/*

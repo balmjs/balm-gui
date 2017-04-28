@@ -6,8 +6,8 @@ module.exports = function (main, win) {
     win.webContents.toggleDevTools();
   });
 
-  main.on('exec', function (event, command) {
-    execHandle(parseCommand(command), event.sender);
+  main.on('exec', function (event, command, options) {
+    execHandle(parseCommand(command, options || {}), event.sender);
   });
 
   main.on('getPrograms', function (event) {
