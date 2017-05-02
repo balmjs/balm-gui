@@ -39,7 +39,7 @@ exports.parseCommand = function(command, options) {
 
   while (l--){
 
-    let name = command[l];
+    let name = commands[l];
 
     let cmd, startMessage, endMessage, bin = name;
 

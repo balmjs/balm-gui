@@ -35,5 +35,22 @@ export const appSubscribes = [
   'getProgramsDone',
   'getProgramsError',
   'setProgramsSuccess',
-  'setProgramsError'
+  'setProgramsError',
+  'startInstallDepend',
+  'dependInstallIng',
+  'dependInstallError',
+  'dependInstallCompleted',
+  'startInstallTpl',
+  'tplInstallIng',
+  'tplInstallError',
+  'tplInstallCompleted',
+  'startDev',
+  'devOutput',
+  'devError',
+  'devStopped',
+  'devClosed',
+  'startProd',
+  'prodOutput',
+  'prodError',
+  'prodCompleted'
 ];

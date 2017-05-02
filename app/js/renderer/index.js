@@ -17,6 +17,10 @@ import $helper from './plugins/$helper';
 import $event from './plugins/$event';
 import $moment from './plugins/$moment';
 import $dialog from './plugins/$dialog';
+import $terminal from './plugins/$terminal';
+import $win from './plugins/$win';
+import $installer from './plugins/$installer';
+import $devManager from './plugins/$dev-manager';
 
 Vue.config.productionTip = false;
 
@@ -30,6 +34,10 @@ Vue.use($helper);
 Vue.use($event);
 Vue.use($moment);
 Vue.use($dialog);
+Vue.use($terminal);
+Vue.use($win);
+Vue.use($installer);
+Vue.use($devManager);
 
 Vue.prototype.isDev = process.env.NODE_ENV === 'development';
 

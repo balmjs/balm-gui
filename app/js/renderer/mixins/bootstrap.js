@@ -34,19 +34,20 @@ export default {
       this.updatePrograms(data || []);
     });
 
-    this.$_event.$on('programsUpdated', (list)=>{
-      if(this.firstLoad){
-        this.$db.setPrograms(list);
-      } else {
-        this.firstLoad = true
-      }
-    });
+    this.$_event.$on('programsUpdated', this.saveData);
 
     this.$db.getPrograms();
   },
   methods: {
     ...mapActions([
       'updatePrograms'
-    ])
+    ]),
+    saveData(list){
+      if(this.firstLoad){
+        this.$db.setPrograms(list);
+      } else {
+        this.firstLoad = true;
+      }
+    }
   }
 }

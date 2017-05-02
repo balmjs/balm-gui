@@ -11,12 +11,18 @@
 .program-list {
   .item {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     position: relative;
     padding: 1em;
-    cursor: pointer;
     background-color: #3b3746;
     color: #fafafa;
+    > div {
+      width: 100%;
+    }
+    .top {
+      display: flex;
+      align-items: center;
+    }
     &:after {
       display: block;
       content: '';

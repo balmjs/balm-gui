@@ -1,13 +1,33 @@
 const {execHandle, parseCommand, dbGet, dbSet} = require('./util');
 
-module.exports = function (main, win) {
+const {installTpl, installDepend} = require('./installer');
 
-  main.on('toggleDevTools', function () {
-    win.webContents.toggleDevTools();
-  });
+const {startDev, stopDev, startProd} = require('./dev-manager');
+
+module.exports = function (main, win) {
 
   main.on('exec', function (event, command, options) {
     execHandle(parseCommand(command, options || {}), event.sender);
+  });
+
+  main.on('installTpl', function (event, opts) {
+    installTpl(opts, event.sender);
+  });
+
+  main.on('installDepend', function (event, opts) {
+    installDepend(opts, event.sender);
+  });
+
+  main.on('runDev', function (event, opts) {
+    startDev(opts, event.sender);
+  });
+
+  main.on('stopDev', function (event, opts) {
+    stopDev(opts, event.sender);
+  });
+
+  main.on('buildProgram', function (event, opts) {
+    startProd(opts, event.sender);
   });
 
   main.on('getPrograms', function (event) {

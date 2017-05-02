@@ -1,7 +1,14 @@
-import * as type from './mutation-types';
+import * as types from './mutation-types';
+import event from '../event';
 
 export default {
-  [type.SET_PROGRAMS](state, data){
+  [types.SET_PROGRAMS](state, data){
     state.list = data;
+    event.$emit('programsUpdated', state.list);
+  },
+  [types.SET_SINGLE_PROGRAM](state, item){
+    let index = state.list.findIndex( ({id})=> id === item.id);
+    state.list.splice(index, 1, item);
+    event.$emit('programsUpdated', state.list);
   }
 }

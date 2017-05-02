@@ -1,0 +1,11 @@
+.terminal-enter-active,
+.terminal-leave-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.terminal-enter,
+.terminal-leave-active {
+  opacity: 0;
+  transform: scale(0.618);
+}

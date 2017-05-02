@@ -7,6 +7,6 @@ exports.commands = [
 
 exports.commandsMessage = {
   'yarn install': ['installing  dependencies', 'dependencies has been installed without error'],
-  'balm init': ['installing template', 'template has been installed success'],
+  'balm init': ['installing template...', 'template has been installed success.'],
   'balm list': ['', ''],
 };
