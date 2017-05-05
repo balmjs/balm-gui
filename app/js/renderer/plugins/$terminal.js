@@ -22,10 +22,9 @@ export default {
                   </transition>`,
       methods: {
         insertText(text){
-          this.show = true;
           this.textArr.push(text);
           this.$nextTick(function () {
-            let container = this.$el.querySelector('.container'), list = this.$el.querySelector('.text-list');
+            let container = this.$el.querySelector('.wrap'), list = this.$el.querySelector('.text-list');
             container.scrollTop = parseInt(getComputedStyle(list).height, 10);
           });
         },
@@ -33,10 +32,10 @@ export default {
           this.show = false;
         },
         open(){
-          this.clearTerminal();
-          this.$nextTick(function () {
-            this.show = true;
-          });
+          this.show = true;
+        },
+        toggle(){
+          this.show = !this.show;
         },
         clearTerminal(){
           this.textArr = [];

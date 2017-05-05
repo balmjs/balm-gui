@@ -43,14 +43,5 @@ export const appSubscribes = [
   'startInstallTpl',
   'tplInstallIng',
   'tplInstallError',
-  'tplInstallCompleted',
-  'startDev',
-  'devOutput',
-  'devError',
-  'devStopped',
-  'devClosed',
-  'startProd',
-  'prodOutput',
-  'prodError',
-  'prodCompleted'
+  'tplInstallCompleted'
 ];

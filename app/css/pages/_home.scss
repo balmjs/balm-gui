@@ -19,10 +19,30 @@
     > div {
       width: 100%;
     }
-    .top {
+    .top, .btn-area {
       display: flex;
       align-items: center;
     }
+
+    .top {
+      margin-bottom: .5em;
+    }
+
+    .btn-area i {
+      cursor: pointer;
+      padding: .1em;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      & + i {
+        margin-left: 1em;
+      }
+      &:active {
+        box-shadow: 0 1px 5px rgba(0, 0, 0, .9) inset;
+      }
+    }
+
     &:after {
       display: block;
       content: '';

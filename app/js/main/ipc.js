@@ -2,7 +2,7 @@ const {execHandle, parseCommand, dbGet, dbSet} = require('./util');
 
 const {installTpl, installDepend} = require('./installer');
 
-const {startDev, stopDev, startProd} = require('./dev-manager');
+// const {startDev, stopDev, startProd} = require('./dev-manager');
 
 module.exports = function (main, win) {
 
@@ -18,7 +18,7 @@ module.exports = function (main, win) {
     installDepend(opts, event.sender);
   });
 
-  main.on('runDev', function (event, opts) {
+  /*main.on('runDev', function (event, opts) {
     startDev(opts, event.sender);
   });
 
@@ -28,7 +28,7 @@ module.exports = function (main, win) {
 
   main.on('buildProgram', function (event, opts) {
     startProd(opts, event.sender);
-  });
+  });*/
 
   main.on('getPrograms', function (event) {
     dbGet('programs').then(function (data) {

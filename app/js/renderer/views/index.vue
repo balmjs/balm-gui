@@ -21,18 +21,31 @@
         </div>
 
         <div class="btn-area">
-          <a class="btn install-btn" @click="$installer.initProgram(item)">
-            <i class="material-icons">vertical_align_bottom</i>
-          </a>
-          <a class="btn dev-btn" @click="$devManager.runDev(item)">
-            <i class="material-icons">play_arrow</i>
-          </a>
-          <a class="btn dev-btn" @click="$devManager.stopDev(item)">
-            <i class="material-icons">pause</i>
-          </a>
-          <a class="btn dev-btn" @click="$devManager.build(item)">
-            <i class="material-icons">pages</i>
-          </a>
+          <template v-if="!item.installed">
+            <i class="material-icons"
+               title="Init Program"
+               @click="$installer.initProgram(item)">vertical_align_bottom</i>
+          </template>
+          <template v-else>
+            <i class="material-icons"
+               title="Start Dev Server"
+               v-if="!item.onRunDev"
+               @click="runDev(item)">play_arrow</i>
+
+            <i class="material-icons"
+               title="Stop Dev Server"
+               v-else
+               @click="$devManager.stopDev(item)">pause</i>
+
+            <i class="material-icons"
+               title="Build Program"
+               @click="$devManager.build(item)">pages</i>
+
+            <i class="material-icons"
+               title="Open Terminal"
+               @click="$terminal.open">indeterminate_check_box</i>
+          </template>
+
         </div>
 
       </div>
@@ -64,6 +77,10 @@
       ]),
       goToAdd(){
         this.$router.push('/add/program');
+      },
+      runDev(item){
+        this.$terminal.open();
+        this.$devManager.runDev(item);
       }
     },
     created(){
@@ -79,6 +96,12 @@
             }
         });
       });
+
+      /*this.$_event.$on('startDev', ({id})=>{
+        let item = this.list.find((n) => n.id = id);
+        item.onRunDev = true;
+        console.log(this.$_copy(item));
+      });*/
     }
   };
 </script>

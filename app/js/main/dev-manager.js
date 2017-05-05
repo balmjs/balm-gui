@@ -1,16 +1,17 @@
-const exec = require('child_process').exec;
+const childProcess = require('child_process');
+const exec = childProcess.exec;
 
 let lsArr = [];
 
 exports.startDev = function ({path, id}, sender) {
 
   let item = lsArr.find((item)=> item.id === id);
-  let ls = exec(`${thirdModulePath['yarn']} run dev`, {
+  let ls = exec(`npm run dev`, {
     cwd: path
   });
 
   if(item){
-    item.ls.kill(item.ls.pid);
+    item.ls.kill();
     item.ls = ls;
   } else {
     lsArr.push({
@@ -39,7 +40,7 @@ exports.stopDev = function ({path, id}, sender) {
   let index = lsArr.findIndex((item)=> item.id = id), item = lsArr[index];
 
   if(item){
-    item.ls.kill(item.ls.pid);
+    item.ls.kill();
     lsArr.splice(index, 1);
   }
 
@@ -48,12 +49,12 @@ exports.stopDev = function ({path, id}, sender) {
 
 exports.startProd = function ({path, id}, sender) {
   let item = lsArr.find((item)=> item.id === id);
-  let ls = exec(`${thirdModulePath['yarn']} run prod`, {
+  let ls = exec(`npm run prod`, {
     cwd: path
   });
 
   if(item){
-    item.ls.kill(item.ls.pid);
+    item.ls.kill();
     item.ls = ls;
   } else {
     lsArr.push({

@@ -15,6 +15,7 @@ exports.installTpl = function ({path, tpl, id}, sender) {
 
   ls.on('close', ()=>{
     sender.send('tplInstallCompleted', {path, tpl, id});
+    ls = null;
   });
 };
 
@@ -35,5 +36,6 @@ exports.installDepend = function ({path, id}, sender) {
 
   ls.on('close', ()=>{
     sender.send('dependInstallCompleted', {path, id});
+    ls = null;
   });
 };

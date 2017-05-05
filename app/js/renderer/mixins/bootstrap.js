@@ -37,6 +37,8 @@ export default {
     this.$_event.$on('programsUpdated', this.saveData);
 
     this.$db.getPrograms();
+
+    this.$ipc.send('test');
   },
   methods: {
     ...mapActions([
