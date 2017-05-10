@@ -38,7 +38,7 @@ let createWindow =  () => {
 
   ipc(ipcMain, win);
 
-  dialog.showMessageBox({message: `${process.env.PATH}\n\n${process.env.SHELL}`});
+  // dialog.showMessageBox({message: `${process.env.PATH}\n\n${process.env.SHELL}`});
 };
 
 // Electron 会在初始化后并准备
