@@ -5,14 +5,20 @@ const Zip = require('adm-zip');
 const home = require('user-home');
 const {exec} = require('child_process');
 
-const {createWriteStream} = fs;
+const {createWriteStream, mkdirSync, existsSync} = fs;
 
 const generate = function  (opts, ipc) {
   let template = opts.tpl, targetPath = opts.path;
   let tmp = path.join(home, '.balm-templates');
+
+  if(!existsSync(tmp)){
+    mkdirSync(tmp, { IS_HIDDEN: true });
+  }
+
   let zip = new Zip(`${tmp}/template-${template}-master.zip`);
 
-  zip.extractEntryTo('template-ng-master/templates/', targetPath, false, true);
+
+  zip.extractEntryTo(`template-${template}-master/templates/`, targetPath, false, true);
   ipc.send('tplInstallCompleted', opts);
 };
 
