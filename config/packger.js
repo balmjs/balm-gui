@@ -4,7 +4,7 @@
 module.exports = {
   dir:'./dist',
   out: './build',
-  asar: true,
+  // asar: true,
   arch: 'x64',
   platform: 'darwin',
   overwrite: true

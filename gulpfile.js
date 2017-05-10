@@ -16,9 +16,11 @@ balm.go(function (mix) {
   if(balm.config.production){
 
     mix.copy('./app/package.json', './dist');
-    mix.copy('./app/db', './dist/db');
-    mix.copy('./app/yarn', './dist/yarn');
-    mix.copy('./app/balm-cli', './dist/balm-cli');
+    mix.copy('./app/db/**/*', './dist/db');
+    mix.copy('./app/yarn/**/*', './dist/yarn');
+    mix.copy('./app/balm-cli/**/*', './dist/balm-cli');
+    mix.copy('./app/main/**/*', './dist/main');
+    mix.copy('./app/node_modules/**/*', './dist/node_modules');
 
     mix.end(function () {
       packager(packagerConfig, function done_callback (err, appPaths) {

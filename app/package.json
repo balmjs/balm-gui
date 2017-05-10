@@ -2,5 +2,10 @@
   "name": "balm-gui",
   "productName": "balm-gui",
   "version": "0.0.1",
-  "main": "./js/main.js"
+  "main": "./main/index.js",
+  "dependencies": {
+    "adm-zip": "^0.4.7",
+    "got": "^6.7.1",
+    "user-home": "^2.0.0"
+  }
 }

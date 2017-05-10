@@ -25,8 +25,7 @@ module.exports = {
   },
   scripts: {
     entry: {
-      'renderer': './app/js/renderer/index',
-      'main': './app/js/main'
+      'renderer': './app/js/index'
     },
     loaders: [{
       test: /\.vue$/,
@@ -34,6 +33,9 @@ module.exports = {
     }, {
       test: /balm-ui.src.*?js$/,
       loader: 'babel'
+    }, {
+      test: /\.coffee$/,
+      loader: 'coffee'
     }],
     target: 'electron-renderer',
     extends: {
