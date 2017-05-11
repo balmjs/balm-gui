@@ -2,6 +2,8 @@ const balm = require('balm');
 const packager = require('electron-packager');
 const packagerConfig = require('./config/packger');
 const config = require('./config');
+const x64 = Object.assign({arch: 'x64'}, packagerConfig);
+const x32 = Object.assign({arch: 'ia32'}, packagerConfig);
 
 balm.config = config;
 
@@ -23,8 +25,13 @@ balm.go(function (mix) {
     mix.copy('./app/node_modules/**/*', './dist/node_modules');
 
     mix.end(function () {
-      packager(packagerConfig, function done_callback (err, appPaths) {
-        console.log('done.');
+      packager(x64, function () {
+        packager(x32, function (err, appPaths) {
+          if(err){
+            console.log(err);
+          }
+          console.log('done.');
+        });
       })
     });
 

@@ -5,7 +5,9 @@ module.exports = {
   dir:'./dist',
   out: './build',
   // asar: true,
-  arch: 'x64',
-  platform: 'darwin',
+  icon: './balm',
+  //arch: 'x64',
+  packageManager: 'yarn',
+  platform: 'all',
   overwrite: true
 };
