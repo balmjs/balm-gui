@@ -50,7 +50,7 @@ exports.installTpl = function(opts, ipc) {
 
 exports.installDepend = function (opts, ipc) {
   ipc.send('startInstallDepend');
-  let ls = exec(`${process.env.SHELL} ${thirdModulePath.yarn}`, {
+  let ls = exec(`${thirdModulePath.yarn}`, {
     cwd: opts.path
   });
   ls.stdout.on('data', function (data) {
