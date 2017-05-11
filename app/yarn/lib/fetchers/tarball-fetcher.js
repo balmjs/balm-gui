@@ -155,7 +155,7 @@ class TarballFetcher extends (_baseFetcher || _load_baseFetcher()).default {
       const tarballMirrorPath = _this3.getTarballMirrorPath();
       const tarballCachePath = _this3.getTarballCachePath();
 
-      const tarballPath = override || tarballMirrorPath || tarballCachePath;
+      const tarballPath = path.resolve(_this3.config.cwd, override || tarballMirrorPath || tarballCachePath);
 
       if (!tarballPath || !(yield (_fs || _load_fs()).exists(tarballPath))) {
         throw new (_errors || _load_errors()).MessageError(_this3.config.reporter.lang('tarballNotInNetworkOrCache', _this3.reference, tarballPath));
@@ -226,6 +226,12 @@ class TarballFetcher extends (_baseFetcher || _load_baseFetcher()).default {
     var _this4 = this;
 
     return (0, (_asyncToGenerator2 || _load_asyncToGenerator()).default)(function* () {
+      const urlParse = url.parse(_this4.reference);
+
+      if (urlParse.protocol === null && urlParse.pathname.match(/^\.\.?[\/\\]/)) {
+        return yield _this4.fetchFromLocal(_this4.reference);
+      }
+
       if (yield _this4.getLocalAvailabilityStatus()) {
         return yield _this4.fetchFromLocal();
       } else {
