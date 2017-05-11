@@ -45,7 +45,10 @@
                title="Open Terminal"
                @click="$terminal.open">indeterminate_check_box</i>
           </template>
-
+          <i class="material-icons remove"
+             title="Open Terminal"
+             v-if="!item.onRunDev"
+             @click="$installer.remove(item)">close</i>
         </div>
 
       </div>

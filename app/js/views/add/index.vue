@@ -1,7 +1,5 @@
 <template>
-  <transition name="zoom">
-    <component :is="action" :class="[action]"></component>
-  </transition>
+  <component :is="action" :class="[action]"></component>
 </template>
 
 <script>

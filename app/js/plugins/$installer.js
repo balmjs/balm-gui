@@ -7,10 +7,23 @@ import store from '../store';
 
 const methods = {
   ...mapActions([
-    'updateProgram'
+    'updateProgram',
+    'removeProgram'
   ]),
   getTplName(tpl){
     return this.templates.find(({key}) => key === tpl).value;
+  },
+  remove(item){
+    this.$dialog.showMessageBox({
+      type: 'warning',
+      buttons: ['Yes', 'Cancel'],
+      message: 'Do you want to remove this program?',
+      cancelId: 1
+    }, (response) => {
+      if(response === 0) {
+        this.removeProgram(item);
+      }
+    });
   },
   initProgram({installed, path, tpl, id}){
 

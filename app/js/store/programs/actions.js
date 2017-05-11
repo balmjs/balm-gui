@@ -6,5 +6,8 @@ export default {
   },
   updateProgram({commit}, item){
     commit(types.SET_SINGLE_PROGRAM, item);
+  },
+  removeProgram({commit}, item){
+    commit(types.REMOVE_PROGRAM, item);
   }
 }
