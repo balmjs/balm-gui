@@ -47,6 +47,10 @@ export default {
       this.updatePath(path);
     });
 
+    this.$_event.$on('debug', (e)=> {
+      console.log(e);
+    });
+
     this.$db.getPrograms();
 
     this.$db.getSettings();
@@ -57,11 +61,6 @@ export default {
       'updateSettings',
       'updatePath'
     ]),
-    checkEnc({env}){
-      if(!env.node){
-
-      }
-    },
     saveTpl(list){
       if(this.programsLoaded){
         this.$db.setPrograms(list);

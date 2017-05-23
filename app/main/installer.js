@@ -11,12 +11,7 @@ const generate = function  (opts, ipc) {
   let template = opts.tpl, targetPath = opts.path;
   let tmp = path.join(home, '.balm-templates');
 
-  if(!existsSync(tmp)){
-    mkdirSync(tmp, { IS_HIDDEN: true });
-  }
-
   let zip = new Zip(`${tmp}/template-${template}-master.zip`);
-
 
   zip.extractEntryTo(`template-${template}-master/templates/`, targetPath, false, true);
   ipc.send('tplInstallCompleted', opts);
@@ -26,6 +21,10 @@ const downloadAndGenerate = function  (opts, ipc) {
   let template = opts.tpl, to = opts.path;
 
   let tmp = path.join(home, '.balm-templates');
+
+  if(!existsSync(tmp)){
+    mkdirSync(tmp, { IS_HIDDEN: true });
+  }
 
   let zipPath = `${tmp}/template-${template}-master.zip`;
 

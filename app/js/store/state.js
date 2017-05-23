@@ -25,6 +25,7 @@ export const templates = [{
 }];
 
 export const appSubscribes = [
+  'debug',
   'error',
   'startExec',
   'endExec',

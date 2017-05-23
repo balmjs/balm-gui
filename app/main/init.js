@@ -3,13 +3,8 @@ const {app} = require('electron');
 module.exports = function () {
 
   let platform = process.platform;
-
   switch (platform){
     case 'darwin':
-      process.env.PATH = '/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin';
-      break;
-    case 'win32':
-      console.log(process.env);
       process.env.PATH = '/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin';
       break;
   }

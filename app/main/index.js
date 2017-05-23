@@ -17,7 +17,7 @@ let createWindow =  () => {
   win = new BrowserWindow({
     width: 530,
     height: 667,
-    //resizable: isDev,
+    resizable: isDev,
     maximizable: isDev,
     fullscreenable: isDev
   });
