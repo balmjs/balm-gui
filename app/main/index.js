@@ -17,7 +17,7 @@ let createWindow =  () => {
   win = new BrowserWindow({
     width: 530,
     height: 667,
-    resizable: isDev,
+    //resizable: isDev,
     maximizable: isDev,
     fullscreenable: isDev
   });
@@ -27,13 +27,15 @@ let createWindow =  () => {
 
   // 打开开发者工具。
   isDev && win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 
   // 当 window 被关闭，这个事件会被触发。
   win.on('closed', () => {
     // 取消引用 window 对象，如果你的应用支持多窗口的话，
     // 通常会把多个 window 对象存放在一个数组里面，
     // 与此同时，你应该删除相应的元素。
-    win = null;
+    // win = null;
+    app.quit();
   });
 
   ipc(ipcMain, win);
@@ -59,6 +61,6 @@ app.on('activate', () => {
   // 在这文件，你可以续写应用剩下主进程代码。
   // 也可以拆分成几个文件，然后用 require 导入。
   if (win === null) {
-    // createWindow()
+     // createWindow()
   }
 });

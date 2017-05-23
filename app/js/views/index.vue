@@ -41,12 +41,17 @@
                title="Build Program"
                @click="$devManager.build(item)">pages</i>
 
+            <!--<i class="material-icons"
+               title="Add New Package"
+               v-if="!item.onRunDev"
+               @click="$installer.add">add</i>-->
+
             <i class="material-icons"
                title="Open Terminal"
                @click="$terminal.open">indeterminate_check_box</i>
           </template>
           <i class="material-icons remove"
-             title="Open Terminal"
+             title="Remove Programs"
              v-if="!item.onRunDev"
              @click="$installer.remove(item)">close</i>
         </div>

@@ -2,7 +2,17 @@ const {app} = require('electron');
 
 module.exports = function () {
 
-  process.env.PATH = '/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin';
+  let platform = process.platform;
+
+  switch (platform){
+    case 'darwin':
+      process.env.PATH = '/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin';
+      break;
+    case 'win32':
+      console.log(process.env);
+      process.env.PATH = '/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin';
+      break;
+  }
 
   const arg = process.argv[2];
 
