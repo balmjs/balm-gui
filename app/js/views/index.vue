@@ -30,7 +30,7 @@
             <i class="material-icons"
                title="Start Dev Server"
                v-if="!item.onRunDev"
-               @click="runDev(item)">play_arrow</i>
+               @click="$devManager.runDev(item)">play_arrow</i>
 
             <i class="material-icons"
                title="Stop Dev Server"
@@ -85,10 +85,6 @@
       ]),
       goToAdd(){
         this.$router.push('/add/program');
-      },
-      runDev(item){
-        this.$terminal.open();
-        this.$devManager.runDev(item);
       },
       initList (list){
         this.list = this.$_copy(list).map((item)=> {

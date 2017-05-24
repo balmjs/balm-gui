@@ -1,34 +1,50 @@
 import _event from '../store/event';
 import {exec} from 'child_process';
+import {existsSync} from 'fs';
+import type from '../helpers/type';
+
+const checkPath = function ({path}, fn) {
+  if(existsSync(path)){
+    type.isFunction(fn) && fn();
+  } else {
+    this.$dialog.showMessageBox({
+      type: 'error',
+      message: `can not find program on '${path}'`
+    });
+  }
+};
 
 const methods = {
   runDev(item){
-    item.onRunDev = true;
-    let oldLs = this.lsArr.find((o)=> o.id === item.id);
-    let ls = exec(`npm run dev`, {
-      cwd: item.path
-    });
-
-    if(oldLs){
-      oldLs.ls.kill();
-      oldLs.ls = ls;
-    } else {
-      this.lsArr.push({
-        id: item.id,
-        ls
+    checkPath.call(this, item, ()=>{
+      this.$terminal.open();
+      item.onRunDev = true;
+      let oldLs = this.lsArr.find((o)=> o.id === item.id);
+      let ls = exec(`npm run dev`, {
+        cwd: item.path
       });
-    }
 
-    ls.stdout.on('data', (data)=>{
-      _event.$emit('devOutput', data);
-    });
+      if(oldLs){
+        oldLs.ls.kill();
+        oldLs.ls = ls;
+      } else {
+        this.lsArr.push({
+          id: item.id,
+          ls
+        });
+      }
 
-    ls.stderr.on('data', (data)=>{
-      _event.$emit('devError', data);
-    });
+      ls.stdout.on('data', (data)=>{
+        _event.$emit('devOutput', data);
+      });
 
-    ls.on('close', ()=>{
-      _event.$emit('devClosed', item);
+      ls.stderr.on('data', (data)=>{
+        _event.$emit('devError', data);
+      });
+
+      ls.on('close', ()=>{
+        _event.$emit('devClosed', item);
+      });
     });
   },
   stopDev(item){
@@ -43,25 +59,27 @@ const methods = {
     _event.$emit('stopDevServer', item.id);
   },
   build(item){
-    this.stopDev(item);
-    item.onRunProd = true;
+    checkPath.call(this, item, ()=>{
+      this.stopDev(item);
+      item.onRunProd = true;
 
-    let ls = exec(`npm run prod`, {
-      cwd: item.path
-    });
+      let ls = exec(`npm run prod`, {
+        cwd: item.path
+      });
 
-    _event.$emit('startProd', item);
+      _event.$emit('startProd', item);
 
-    ls.stdout.on('data', (data)=>{
-      _event.$emit('prodOutput', data);
-    });
+      ls.stdout.on('data', (data)=>{
+        _event.$emit('prodOutput', data);
+      });
 
-    ls.stderr.on('data', (data)=>{
-      _event.$emit('prodError', data);
-    });
+      ls.stderr.on('data', (data)=>{
+        _event.$emit('prodError', data);
+      });
 
-    ls.on('close', ()=>{
-      _event.$emit('prodCompleted', item);
+      ls.on('close', ()=>{
+        _event.$emit('prodCompleted', item);
+      });
     });
   },
   getConfigPath(item){

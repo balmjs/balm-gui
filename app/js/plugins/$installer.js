@@ -1,5 +1,5 @@
 // this.$win.getAllWindows()[0].setProgressBar(.8)
-import {readdir} from 'fs';
+import {readdir, existsSync} from 'fs';
 import {mapState, mapActions} from 'vuex';
 import _event from '../store/event';
 import Vuex from 'vuex';
@@ -27,29 +27,35 @@ const methods = {
   },
   initProgram({installed, path, tpl, id}){
 
-    if(!installed){
+    if(existsSync(path)){
+      if(!installed){
 
-      readdir(path,  (err, files)=> {
+        readdir(path,  (err, files)=> {
 
-        if(files.length){
+          if(files.length){
 
-          this.$dialog.showMessageBox({
-            type: 'warning',
-            buttons: ['Sure', 'Cancel'],
-            message: 'This folder is not empty, the existing files will be covered by installing template.\nDo you want to overwrite?',
-            cancelId: 1
-          }, (response) => {
-            if(response === 0) {
-              this.$ipc.send('installTpl', {tpl: this.getTplName(tpl), path, id});
-            }
-          });
+            this.$dialog.showMessageBox({
+              type: 'warning',
+              buttons: ['Sure', 'Cancel'],
+              message: 'This folder is not empty, the existing files will be covered by installing template.\nDo you want to overwrite?',
+              cancelId: 1
+            }, (response) => {
+              if(response === 0) {
+                this.$ipc.send('installTpl', {tpl: this.getTplName(tpl), path, id});
+              }
+            });
 
-        } else {
-          this.$ipc.send('installTpl', {tpl: this.getTplName(tpl), path, id});
-        }
+          } else {
+            this.$ipc.send('installTpl', {tpl: this.getTplName(tpl), path, id});
+          }
 
+        });
+      }
+    } else {
+      this.$dialog.showMessageBox({
+        type: 'error',
+        message: `can not find program on '${path}'`
       });
-
     }
   }
 };

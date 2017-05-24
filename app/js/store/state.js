@@ -1,27 +1,27 @@
 export const templates = [{
   key: 1,
-  value: 'electron',
-},{
-  key: 2,
-  value: 'ng',
-},{
-  key: 3,
-  value: 'react',
-},{
-  key: 4,
-  value: 'react-expert',
-},{
-  key: 5,
   value: 'simple',
 },{
-  key: 6,
+  key: 2,
   value: 'vue',
 },{
-  key: 7,
+  key: 3,
   value: 'vue-expert',
 },{
-  key: 8,
+  key: 4,
   value: 'vue-master',
+},{
+  key: 5,
+  value: 'ng',
+},{
+  key: 6,
+  value: 'react',
+},{
+  key: 7,
+  value: 'react-expert',
+},{
+  key: 8,
+  value: 'electron',
 }];
 
 export const appSubscribes = [

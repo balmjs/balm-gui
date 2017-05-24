@@ -3,8 +3,8 @@ const fs = require('fs');
 const got = require('got');
 const Zip = require('adm-zip');
 const home = require('user-home');
-const {exec} = require('child_process');
 
+const {exec} = require('child_process');
 const {createWriteStream, mkdirSync, existsSync} = fs;
 
 const generate = function  (opts, ipc) {
