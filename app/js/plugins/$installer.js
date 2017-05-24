@@ -110,6 +110,7 @@ const created = function () {
       let item = this.$_copy(this.list.find((item)=> item.id === id));
       item.installed = true;
       this.updateProgram(item);
+      this.$terminal.insertText('Completed! Close this unreal terminal and try to start dev server.');
     // }
 
   });
