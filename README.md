@@ -21,7 +21,7 @@
 </ul>
 
 
-# 下载地址：<a href="http://sharlock.me/download/balm/">传送门</a>
+# 软件包下载地址：<a href="http://sharlock.me/download/balm/">传送门</a>
 
 
 # 已经实现的功能
