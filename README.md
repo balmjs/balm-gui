@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/balmjs/balm-gui/balm.png"></p>
+<p align="center"><img src="https://github.com/balmjs/balm-gui/blob/master/balm.png"></p>
 
 # Balm-Gui
 <ul>
