@@ -14,6 +14,11 @@ balm.config.scripts.alias = {
 
 balm.config.scripts.sourceMap = !balm.config.production;
 
+balm.afterTask = function () {
+  console.log('endTask');
+  require('child_process').exec('npm start');
+};
+
 balm.go(function (mix) {
   if(balm.config.production){
 
@@ -24,7 +29,7 @@ balm.go(function (mix) {
     mix.copy('./app/main/**/*', './dist/main');
     mix.copy('./app/node_modules/**/*', './dist/node_modules');
 
-    mix.end(function () {
+    mix.afterTask(function () {
       packager(x64, function () {
         packager(x32, function (err, appPaths) {
           if(err){
@@ -36,10 +41,6 @@ balm.go(function (mix) {
     });
 
   } else {
-
-    mix.end(function () {
-      require('child_process').exec('npm start');
-    });
 
   }
 });

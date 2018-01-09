@@ -5,7 +5,7 @@ module.exports = {
     port: 4567
   },
   roots: {
-    source: 'app'
+    source: 'client'
   },
   paths: {
     source: {
@@ -25,7 +25,7 @@ module.exports = {
   },
   scripts: {
     entry: {
-      'renderer': './app/js/index'
+      'renderer': './client/js/main'
     },
     loaders: [{
       test: /\.vue$/,
