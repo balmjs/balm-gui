@@ -1,39 +1,30 @@
 {
-  "name": "Balm-GUI",
-  "version": "0.1.0",
-  "description": "GUI for balmjs",
-  "main": "./server/index.js",
-  "engines": {
-    "node": ">=4.0.0"
-  },
+  "name": "balm-gui",
+  "version": "1.0.0",
+  "description": "An electron app boilerplate with BalmJS",
+  "author": "74sharlock <sharlock7788@gmail.com>",
   "scripts": {
-    "dev": "./node_modules/.bin/gulp",
-    "start": "./node_modules/.bin/electron . --debug",
-    "prod": "./node_modules/.bin/gulp --production"
-  },
-  "dependencies": {
-    "adm-zip": "^0.4.7",
-    "balm-ui-lite": "^1.0.5",
-    "got": "^8.0.1",
-    "moment": "^2.20.1",
-    "npm-check": "^5.5.2",
-    "user-home": "^2.0.0",
-    "vue": "^2.5.13",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "yarn": "^1.3.2"
+    "dev": "gulp --silent",
+    "start": "./node_modules/.bin/electron ./app --debug",
+    "prod": "gulp --silent -p"
   },
   "devDependencies": {
-    "babel-eslint": "^8.1.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "balm": "^0.14.0",
-    "electron": "^1.7.10",
-    "electron-packager": "^10.1.1",
-    "gulp": "^3.9.1",
-    "vue-loader": "^13.6.2",
-    "vue-template-compiler": "^2.5.13"
+    "@vue/devtools": "^5.3.3",
+    "asar": "^2.0.1",
+    "balm": "^2.0.4",
+    "electron": "^7.1.7",
+    "electron-packager": "^14.1.1",
+    "gulp": "^4.0.2",
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.11"
   },
-  "author": "74sharlock",
-  "license": "ISC"
+  "private": true,
+  "dependencies": {
+    "balm-ui": "^4.0.2",
+    "fs-extra": "^8.1.0",
+    "normalize.css": "^8.0.1",
+    "user-home": "^2.0.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.3"
+  }
 }

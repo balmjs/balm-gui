@@ -1,0 +1,9 @@
+{
+  "name": "balm-gui",
+  "productName": "balm-gui",
+  "version": "0.2",
+  "main": "./main/index.js",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  }
+}
